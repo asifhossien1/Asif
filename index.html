@@ -1,167 +1,164 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>My Wife ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<script>
-document.addEventListener("click", function(e){
-    let heart = document.createElement("div");
-    heart.innerHTML = "❤️";
-
-    heart.style.position = "fixed";
-    heart.style.left = e.clientX + "px";
-    heart.style.top = e.clientY + "px";
-    heart.style.fontSize = "30px";
-    heart.style.pointerEvents = "none";
-    heart.style.animation = "pop 1s forwards";
-
-    document.body.appendChild(heart);
-
-    setTimeout(() => {
-        heart.remove();
-    }, 1000);
-});
-</script>
+<title>❤️ My Wife ❤️</title>
 
 <style>
-    typing{
-  width: 0;
-  overflow: hidden;
-  white-space: nowrap;
-  border-right: 3px solid red;
-  font-size: 34px;
-  font-weight: bold;
-  color: #ff0066;
-  margin: auto;
-  animation: typing 5s steps(30,end) forwards,
-             blink .8s infinite;
-}
 
-@keyframes typing{
-  from{width:0;}
-  to{width:100%;}
-}
-
-@keyframes blink{
-  50%{border-color:transparent;}
-}
-@keyframes pop{
-    0%{
-        transform:scale(0);
-        opacity:1;
-    }
-    100%{
-        transform:scale(2) translateY(-50px);
-        opacity:0;
-    }
-}
-</style>
 body{
     margin:0;
     padding:0;
-    background:linear-gradient(to bottom,#ffb6c1,#ffe4e1);
-    font-family:Arial,sans-serif;
     text-align:center;
-    color:white;
-}
-
-.content{
-    position:relative;
-    z-index:2;
-    padding:20px;
-}
-
-img{
-    width:250px;
-    height:auto;
-    border-radius:20px;
-    border:5px solid white;
+    font-family:Arial,sans-serif;
+    background:linear-gradient(to bottom,#ffd6e7,#fff0f5);
+    overflow-x:hidden;
 }
 
 h1{
-    color:#d63384;
-    text-shadow:0 0 5px white;
+    color:#ff0066;
+    margin-top:30px;
+    font-size:38px;
+    text-shadow:2px 2px 10px white;
 }
-    
+
+.typing{
+    display:inline-block;
+    overflow:hidden;
+    white-space:nowrap;
+    border-right:3px solid red;
+    animation:typing 4s steps(30,end),blink .8s infinite;
+}
+
+@keyframes typing{
+from{width:0;}
+to{width:100%;}
+}
+
+@keyframes blink{
+50%{border-color:transparent;}
+}
+
+img{
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    object-fit:cover;
+    border:6px solid white;
+    box-shadow:0 0 20px hotpink;
+    margin-top:20px;
+}
+
 p{
     font-size:22px;
     color:#333;
-    text-shadow:none;
-    }
+    line-height:1.8;
+}
 
 a{
-    color:yellow;
+    color:#ff0066;
     font-size:24px;
     text-decoration:none;
+    font-weight:bold;
 }
 
 .heart{
     position:fixed;
     color:red;
+    animation:fall 7s linear infinite;
     font-size:30px;
-    animation:fall 6s linear infinite;
 }
-
-.heart:nth-child(1){left:10%;animation-delay:0s;}
-.heart:nth-child(2){left:30%;animation-delay:1s;}
-.heart:nth-child(3){left:50%;animation-delay:2s;}
-.heart:nth-child(4){left:70%;animation-delay:3s;}
-.heart:nth-child(5){left:90%;animation-delay:4s;}
 
 @keyframes fall{
 0%{
 transform:translateY(-100px);
-opacity:0;
+opacity:1;
 }
 100%{
 transform:translateY(110vh);
-opacity:1;
+opacity:0;
 }
 }
+
 </style>
 
 </head>
 
 <body>
 
+<div class="heart" style="left:10%;animation-delay:0s;">❤️</div>
+<div class="heart" style="left:30%;animation-delay:1s;">❤️</div>
+<div class="heart" style="left:50%;animation-delay:2s;">❤️</div>
+<div class="heart" style="left:70%;animation-delay:3s;">❤️</div>
+<div class="heart" style="left:90%;animation-delay:4s;">❤️</div>
+
+<h1 class="typing">I Love You So Much, Jan ❤️</h1>
+
+<br>
+
+<img src="Messenger_creation_1A4A6DAE-936F-4CAB-B5F1-072268D144D7.jpeg">
+
+<p>
+I realized after meeting you,<br>
+When the right person is by my side,<br>
+I no longer fear being alone. ❤️🌸
+</p>
+
+<p>
+Please know that you will never leave me. 🥹
+</p>
+
+<p>
+It's okay to be naughty from the heart,<br>
+but I love you very much. 🥰
+</p>
+
+<hr width="80%">
+
+<p>I Miss You Jan 🥺</p>
+
+<p>I Kiss You Jan 😘</p>
+
+<p>I Want To Make You My Wife ❤️</p>
+
+<a href="https://facebook.com" target="_blank">Facebook</a>
+
 <audio autoplay loop>
 <source src="music.mp3" type="audio/mpeg">
 </audio>
 
-<div class="heart">❤️</div>
-<div class="heart">❤️</div>
-<div class="heart">❤️</div>
-<div class="heart">❤️</div>
-<div class="heart">❤️</div>
+<script>
 
-<div class="content">
+document.addEventListener("click",function(e){
 
-<h1 class="typing">I Love You So Much, Jan ❤️</h1>
+let heart=document.createElement("div");
 
-<img src="Messenger_creation_1A4A6DAE-936F-4CAB-B5F1-072268D144D7.jpeg" alt="My Love">
+heart.innerHTML="❤️";
 
-<p>I realized after meeting you,<br>
-When the right person is by my side,<br>
-I no longer fear being alone. ❤️🌸</p>
+heart.style.position="fixed";
+heart.style.left=e.clientX+"px";
+heart.style.top=e.clientY+"px";
+heart.style.fontSize="35px";
+heart.style.pointerEvents="none";
+heart.style.transition="1s";
+heart.style.zIndex="999";
 
-<p>Please know that you will never leave me. 🥹</p>
+document.body.appendChild(heart);
 
-<p>It's okay to be naughty from the heart,<br>
-but I love you very much. 🥰</p>
+setTimeout(()=>{
+heart.style.transform="translateY(-100px) scale(2)";
+heart.style.opacity="0";
+},10);
 
-<hr>
+setTimeout(()=>{
+heart.remove();
+},1000);
 
-<p>I Miss You Jan 🥹</p>
+});
 
-<p>I Kiss You Jan 😚</p>
-
- <p class="typing">I Want To Make You My Wife ❤️</p>
-
-<a href="https://facebook.com">Facebook</a>
-
-</div>
+</script>
 
 </body>
 </html>
