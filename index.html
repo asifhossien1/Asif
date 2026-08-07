@@ -131,6 +131,18 @@ but I love you very much. 🥰
 
 <script>
 
+let password = prompt("🔒 Enter Password");
+
+if (password !== "FARIHA") {
+    document.body.innerHTML = `
+    <div style="display:flex;justify-content:center;align-items:center;height:100vh;background:#ffe6f2;">
+        <div style="text-align:center;">
+            <h1>❌ Wrong Password</h1>
+            <p>Access Denied!</p>
+        </div>
+    </div>`;
+} else {
+
 document.addEventListener("click",function(e){
 
 let heart=document.createElement("div");
@@ -157,6 +169,8 @@ heart.remove();
 },1000);
 
 });
+
+}
 
 </script>
 
