@@ -5,7 +5,59 @@
 <meta charset="UTF-8">
 <title>My Wife ❤️</title>
 
+<script>
+document.addEventListener("click", function(e){
+    let heart = document.createElement("div");
+    heart.innerHTML = "❤️";
+
+    heart.style.position = "fixed";
+    heart.style.left = e.clientX + "px";
+    heart.style.top = e.clientY + "px";
+    heart.style.fontSize = "30px";
+    heart.style.pointerEvents = "none";
+    heart.style.animation = "pop 1s forwards";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 1000);
+});
+</script>
+
 <style>
+    typing{
+  width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid red;
+  font-size: 34px;
+  font-weight: bold;
+  color: #ff0066;
+  margin: auto;
+  animation: typing 5s steps(30,end) forwards,
+             blink .8s infinite;
+}
+
+@keyframes typing{
+  from{width:0;}
+  to{width:100%;}
+}
+
+@keyframes blink{
+  50%{border-color:transparent;}
+}
+@keyframes pop{
+    0%{
+        transform:scale(0);
+        opacity:1;
+    }
+    100%{
+        transform:scale(2) translateY(-50px);
+        opacity:0;
+    }
+}
+</style>
 body{
     margin:0;
     padding:0;
@@ -13,7 +65,6 @@ body{
     font-family:Arial,sans-serif;
     text-align:center;
     color:white;
-    overflow:hidden;
 }
 
 .content{
@@ -24,23 +75,21 @@ body{
 
 img{
     width:250px;
-    height:250px;
-    border-radius:50%;
+    height:auto;
+    border-radius:20px;
     border:5px solid white;
-    box-shadow:0 0 20px red;
 }
 
 h1{
-    color:white;
-    text-shadow:0 0 10px red,
-                0 0 20px pink,
-                0 0 30px white;
+    color:#d63384;
+    text-shadow:0 0 5px white;
 }
-
+    
 p{
     font-size:22px;
-    text-shadow:0 0 8px black;
-}
+    color:#333;
+    text-shadow:none;
+    }
 
 a{
     color:yellow;
@@ -89,7 +138,7 @@ opacity:1;
 
 <div class="content">
 
-<h1>I Love You So Much, Jan ❤️</h1>
+<h1 class="typing">I Love You So Much, Jan ❤️</h1>
 
 <img src="Messenger_creation_1A4A6DAE-936F-4CAB-B5F1-072268D144D7.jpeg" alt="My Love">
 
@@ -108,7 +157,7 @@ but I love you very much. 🥰</p>
 
 <p>I Kiss You Jan 😚</p>
 
-<p>I Want To Make You My Wife ❤️</p>
+ <p class="typing">I Want To Make You My Wife ❤️</p>
 
 <a href="https://facebook.com">Facebook</a>
 
