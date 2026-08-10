@@ -157,6 +157,18 @@ body{
 
 
 <body>
+    <script>
+function checkPassword() {
+  const password = document.getElementById("pass").value;
+
+  if (password === "FARIHA") {
+    document.getElementById("login").style.display = "none";
+    document.getElementById("content").style.display = "block";
+  } else {
+    document.getElementById("error").innerText = "Wrong Password 😐";
+  }
+}
+    </script>
 
 <!-- প্রথমে শুধু এই অংশ দেখা যাবে -->
 
@@ -229,18 +241,7 @@ body{
 
 </div>
 
-<script>
-function checkPassword() {
-  const password = document.getElementById("pass").value;
 
-  if (password === "FARIHA") {
-    document.getElementById("login").style.display = "none";
-    document.getElementById("content").style.display = "block";
-  } else {
-    document.getElementById("error").innerText = "Wrong Password 😐";
-  }
-}
-</script>
 
 
 <script>
