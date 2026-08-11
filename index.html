@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For FARIHA ❤️</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background:#000;
+    font-family:Georgia,serif;
+}
+
+/* =========================
+   PASSWORD SCREEN
+========================= */
+
+#login{
+    position:fixed;
+    inset:0;
+    background:#000;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:99999;
+}
+
+.loginBox{
+    width:90%;
+    max-width:380px;
+    text-align:center;
+    padding:35px 25px;
+    border:1px solid rgba(255,105,180,.5);
+    border-radius:25px;
+    background:rgba(30,0,20,.8);
+    box-shadow:
+        0 0 20px #ff1493,
+        0 0 60px rgba(255,20,147,.3);
+}
+
+.loginBox h1{
+    color:#ff4da6;
+    font-size:30px;
+    margin-bottom:12px;
+    text-shadow:
+        0 0 10px #ff1493,
+        0 0 25px #ff1493;
+}
+
+.loginBox p{
+    color:#fff;
+    margin-bottom:20px;
+}
+
+#password{
+    width:100%;
+    padding:14px;
+    border-radius:25px;
+    border:1px solid #ff1493;
+    background:#100008;
+    color:white;
+    text-align:center;
+    font-size:18px;
+    outline:none;
+}
+
+#enterBtn{
+    margin-top:15px;
+    padding:12px 35px;
+    border:none;
+    border-radius:25px;
+    background:linear-gradient(45deg,#ff1493,#ff4da6);
+    color:white;
+    font-size:17px;
+    cursor:pointer;
+    box-shadow:0 0 20px #ff1493;
+}
+
+#error{
+    color:#ff5555;
+    margin-top:12px;
+    min-height:20px;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+#main{
+    position:fixed;
+    inset:0;
+    display:none;
+    background:#000;
+    overflow:hidden;
+}
+
+canvas{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+}
+
+/* =========================
+   TOP TEXT
+========================= */
+
+.topText{
+    position:absolute;
+    top:7%;
+    left:50%;
+    transform:translateX(-50%);
+    width:100%;
+    text-align:center;
+    color:#ff4da6;
+    font-size:28px;
+    font-weight:bold;
+    letter-spacing:2px;
+
+    text-shadow:
+        0 0 5px #fff,
+        0 0 10px #ff1493,
+        0 0 25px #ff1493,
+        0 0 50px #ff1493;
+
+    animation:glow 2s infinite alternate;
+    z-index:10;
+}
+
+@keyframes glow{
+    from{
+        opacity:.7;
+        text-shadow:
+        0 0 5px #fff,
+        0 0 10px #ff1493;
+    }
+
+    to{
+        opacity:1;
+        text-shadow:
+        0 0 10px #fff,
+        0 0 25px #ff1493,
+        0 0 50px #ff1493;
+    }
+}
+
+/* =========================
+   CENTER
+========================= */
+
+.center{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:300px;
+    height:300px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:5;
+}
+
+/* =========================
+   PHOTO
+========================= */
+
+.photoBox{
+    position:absolute;
+    width:145px;
+    height:145px;
+    border-radius:50%;
+    padding:5px;
+
+    background:linear-gradient(
+        45deg,
+        #ff1493,
+        #ff69b4,
+        #fff,
+        #ff1493
+    );
+
+    box-shadow:
+        0 0 10px #ff1493,
+        0 0 30px #ff1493,
+        0 0 70px rgba(255,20,147,.8);
+
+    animation:
+        photoGlow 2s infinite alternate,
+        photoFloat 4s ease-in-out infinite;
+
+    z-index:20;
+}
+
+.photoBox img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:50%;
+    display:block;
+}
+
+@keyframes photoGlow{
+    from{
+        box-shadow:
+        0 0 10px #ff1493,
+        0 0 25px #ff1493;
+    }
+
+    to{
+        box-shadow:
+        0 0 20px #fff,
+        0 0 50px #ff1493,
+        0 0 90px #ff1493;
+    }
+}
+
+@keyframes photoFloat{
+    0%,100%{
+        transform:translateY(0) scale(1);
+    }
+
+    50%{
+        transform:translateY(-8px) scale(1.03);
+    }
+}
+
+/* =========================
+   ROTATING TEXT
+========================= */
+
+.circleText{
+    position:absolute;
+    width:260px;
+    height:260px;
+    border-radius:50%;
+    animation:rotate 14s linear infinite;
+}
+
+.circleText span{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform-origin:0 0;
+    color:#ff69b4;
+    font-size:12px;
+    font-weight:bold;
+    text-shadow:
+        0 0 5px #ff1493,
+        0 0 10px #ff1493;
+}
+
+@keyframes rotate{
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+/* =========================
+   TYPING TEXT
+========================= */
+
+.typing{
+    position:absolute;
+    bottom:15%;
+    left:50%;
+    transform:translateX(-50%);
+    width:90%;
+    text-align:center;
+    color:white;
+    font-size:18px;
+    text-shadow:
+        0 0 5px #fff,
+        0 0 15px #ff1493;
+    z-index:20;
+}
+
+#typingText{
+    border-right:2px solid #ff69b4;
+    padding-right:4px;
+}
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.floatingHeart{
+    position:absolute;
+    color:#ff1493;
+    font-size:20px;
+    pointer-events:none;
+    animation:floatUp linear forwards;
+    text-shadow:
+        0 0 5px #ff1493,
+        0 0 15px #ff1493;
+    z-index:15;
+}
+
+@keyframes floatUp{
+
+    0%{
+        transform:
+        translateY(0)
+        scale(.5)
+        rotate(0deg);
+
+        opacity:0;
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    100%{
+        transform:
+        translateY(-110vh)
+        scale(1.5)
+        rotate(360deg);
+
+        opacity:0;
+    }
+}
+
+/* =========================
+   BOTTOM
+========================= */
+
+.bottomText{
+    position:absolute;
+    bottom:5%;
+    width:100%;
+    text-align:center;
+    color:#ff69b4;
+    font-size:15px;
+    letter-spacing:1px;
+    text-shadow:0 0 10px #ff1493;
+    z-index:20;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    .topText{
+        top:5%;
+        font-size:23px;
+    }
+
+    .center{
+        width:280px;
+        height:280px;
+    }
+
+    .photoBox{
+        width:130px;
+        height:130px;
+    }
+
+    .circleText{
+        width:245px;
+        height:245px;
+    }
+
+    .typing{
+        bottom:14%;
+        font-size:16px;
+    }
+
+    .bottomText{
+        font-size:13px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- =========================
+     PASSWORD
+========================= -->
+
+<div id="login">
+
+    <div class="loginBox">
+
+        <h1>For You ❤️</h1>
+
+        <p>This surprise is only for you 💕</p>
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Enter Password"
+        >
+
+        <br>
+
+        <button id="enterBtn">
+            Open Surprise ❤️
+        </button>
+
+        <div id="error"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     MAIN PAGE
+========================= -->
+
+<div id="main">
+
+    <canvas id="canvas"></canvas>
+
+    <div class="topText">
+        I LOVE YOU FARIHA ❤️
+    </div>
+
+
+    <div class="center">
+
+        <!-- ROTATING TEXT -->
+
+        <div class="circleText" id="circleText"></div>
+
+
+        <!-- PHOTO -->
+
+        <div class="photoBox">
+
+            <img
+                id="mainPhoto"
+                src="Messenger_creation_02DEAE2E-954E-4314-8D7F-FBF8A43AE834.jpeg"
+            >
+
+        </div>
+
+    </div>
+
+
+    <!-- TYPING -->
+
+    <div class="typing">
+
+        <span id="typingText"></span>
+
+    </div>
+
+
+    <div class="bottomText">
+
+        Made with ❤️ only for FARIHA
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* ==================================================
+   PASSWORD
+================================================== */
+
+const enterBtn =
+document.getElementById("enterBtn");
+
+const password =
+document.getElementById("password");
+
+const login =
+document.getElementById("login");
+
+const main =
+document.getElementById("main");
+
+const error =
+document.getElementById("error");
+
+
+enterBtn.addEventListener("click",function(){
+
+    if(password.value === "FARIHA"){
+
+        login.style.display="none";
+        main.style.display="block";
+
+        startEverything();
+
+    }else{
+
+        error.innerText =
+        "Wrong password 😐";
+
+    }
+
+});
+
+
+password.addEventListener("keydown",function(e){
+
+    if(e.key==="Enter"){
+
+        enterBtn.click();
+
+    }
+
+});
+
+
+/* ==================================================
+   PHOTOS
+================================================== */
+
+const photos = [
+
+"Messenger_creation_02DEAE2E-954E-4314-8D7F-FBF8A43AE834.jpeg",
+
+"Messenger_creation_7EA9BA6B-5856-46F8-B141-810F0D9C4F50.jpeg",
+
+"Messenger_creation_E702391A-2343-4A56-B299-D6AC57A4B8E3.jpeg",
+
+"Messenger_creation_F0F930B1-584E-4A63-8634-C5A675AEAD7B.jpeg",
+
+"Messenger_creation_DCFD2BA4-0DFA-4AB3-A640-6AFA9A41D6FF.jpeg"
+
+];
+
+
+let photoIndex=0;
+
+
+function changePhoto(){
+
+    photoIndex++;
+
+    if(photoIndex >= photos.length){
+
+        photoIndex=0;
+
+    }
+
+    const img =
+    document.getElementById("mainPhoto");
+
+    img.style.opacity="0";
+
+    setTimeout(()=>{
+
+        img.src=photos[photoIndex];
+
+        img.style.opacity="1";
+
+    },500);
+
+}
+
+
+/* প্রতি 4 সেকেন্ডে ছবি change */
+
+setInterval(changePhoto,4000);
+
+
+/* ==================================================
+   ROTATING TEXT
+================================================== */
+
+const circleText =
+document.getElementById("circleText");
+
+const text =
+"I LOVE YOU FARIHA ❤️ • ALWAYS LOVE YOU ❤️ • ";
+
+
+for(let i=0;i<text.length;i++){
+
+    const span =
+    document.createElement("span");
+
+    span.innerText=text[i];
+
+    const angle =
+    i*(360/text.length);
+
+    span.style.transform =
+    `rotate(${angle}deg) translateX(125px)`;
+
+    circleText.appendChild(span);
+
+}
+
+
+/* ==================================================
+   TYPING ANIMATION
+================================================== */
+
+const messages=[
+
+"I love you so much ❤️",
+
+"You are very special to me 💕",
+
+"I want to make you my wife ❤️",
+
+"You are always in my heart 🥰",
+
+"FARIHA, I LOVE YOU ❤️"
+
+];
+
+let messageIndex=0;
+let charIndex=0;
+let deleting=false;
+
+const typingText =
+document.getElementById("typingText");
+
+
+function typingAnimation(){
+
+    const current =
+    messages[messageIndex];
+
+
+    if(!deleting){
+
+        typingText.textContent =
+        current.substring(0,charIndex+1);
+
+        charIndex++;
+
+        if(charIndex === current.length){
+
+            deleting=true;
+
+            setTimeout(typingAnimation,1800);
+
+            return;
+
+        }
+
+    }else{
+
+        typingText.textContent =
+        current.substring(0,charIndex-1);
+
+        charIndex--;
+
+        if(charIndex===0){
+
+            deleting=false;
+
+            messageIndex++;
+
+            if(messageIndex>=messages.length){
+
+                messageIndex=0;
+
+            }
+
+        }
+
+    }
+
+    setTimeout(
+        typingAnimation,
+        deleting ? 50 : 90
+    );
+
+}
+
+
+/* ==================================================
+   FLOATING HEARTS
+================================================== */
+
+function createFloatingHeart(){
+
+    const heart =
+    document.createElement("div");
+
+    heart.className="floatingHeart";
+
+    heart.innerHTML =
+    Math.random() > .5 ? "❤️" : "💕";
+
+    heart.style.left =
+    Math.random()*100+"vw";
+
+    heart.style.bottom="-30px";
+
+    heart.style.fontSize =
+    (15 + Math.random()*25)+"px";
+
+    heart.style.animationDuration =
+    (5 + Math.random()*6)+"s";
+
+    document.getElementById("main")
+    .appendChild(heart);
+
+
+    setTimeout(()=>{
+
+        heart.remove();
+
+    },11000);
+
+}
+
+
+/* ==================================================
+   HEART PARTICLE CANVAS
+================================================== */
+
+const canvas =
+document.getElementById("canvas");
+
+const ctx =
+canvas.getContext("2d");
+
+let particles=[];
+
+let W,H;
+
+
+function resize(){
+
+    W=canvas.width=
+    window.innerWidth;
+
+    H=canvas.height=
+    window.innerHeight;
+
+}
+
+resize();
+
+window.addEventListener(
+"resize",
+resize
+);
+
+
+/* Heart equation */
+
+function heartFunction(t){
+
+    const x =
+    16*Math.pow(Math.sin(t),3);
+
+    const y =
+    13*Math.cos(t)
+    -5*Math.cos(2*t)
+    -2*Math.cos(3*t)
+    -Math.cos(4*t);
+
+    return {x,y};
+
+}
+
+
+/* particle তৈরি */
+
+function createParticles(){
+
+    particles=[];
+
+    const count =
+    window.innerWidth < 600 ? 650 : 1100;
+
+
+    for(let i=0;i<count;i++){
+
+        const t =
+        Math.random()*Math.PI*2;
+
+        const point =
+        heartFunction(t);
+
+
+        const scale =
+        Math.min(W,H)/32;
+
+
+        /* heart-এর ভিতরে random depth */
+
+        const fill =
+        Math.sqrt(Math.random());
+
+
+        particles.push({
+
+            x:W/2 + point.x*scale*fill,
+
+            y:H/2 - point.y*scale*fill,
+
+            baseX:W/2 + point.x*scale*fill,
+
+            baseY:H/2 - point.y*scale*fill,
+
+            size:
+            Math.random()*2+0.5,
+
+            speed:
+            Math.random()*0.03+0.01,
+
+            phase:
+            Math.random()*Math.PI*2,
+
+            alpha:
+            Math.random()*.8+.2
+
+        });
+
+    }
+
+}
+
+createParticles();
+
+
+/* ==================================================
+   ANIMATE PARTICLES
+================================================== */
+
+function animateParticles(){
+
+    ctx.clearRect(0,0,W,H);
+
+
+    for(const p of particles){
+
+        p.phase += p.speed;
+
+
+        /* particle-এর হালকা movement */
+
+        p.x =
+        p.baseX +
+        Math.sin(p.phase)*2;
+
+        p.y =
+        p.baseY +
+        Math.cos(p.phase)*2;
+
+
+        ctx.beginPath();
+
+        ctx.arc(
+            p.x,
+            p.y,
+            p.size,
+            0,
+            Math.PI*2
+        );
+
+
+        ctx.fillStyle =
+        `rgba(255,${60+Math.random()*100},180,${p.alpha})`;
+
+
+        ctx.shadowBlur=10;
+
+        ctx.shadowColor="#ff1493";
+
+        ctx.fill();
+
+    }
+
+
+    requestAnimationFrame(
+        animateParticles
+    );
+
+}
+
+
+/* ==================================================
+   EXTRA HEART OUTLINE
+================================================== */
+
+function drawHeartGlow(){
+
+    const scale =
+    Math.min(W,H)/32;
+
+    ctx.beginPath();
+
+
+    for(
+        let t=0;
+        t<=Math.PI*2;
+        t+=0.02
+    ){
+
+        const p =
+        heartFunction(t);
+
+        const x =
+        W/2+p.x*scale;
+
+        const y =
+        H/2-p.y*scale;
+
+
+        if(t===0){
+
+            ctx.moveTo(x,y);
+
+        }else{
+
+            ctx.lineTo(x,y);
+
+        }
+
+    }
+
+
+    ctx.closePath();
+
+    ctx.strokeStyle=
+    "rgba(255,20,147,.18)";
+
+    ctx.lineWidth=2;
+
+    ctx.shadowBlur=25;
+
+    ctx.shadowColor="#ff1493";
+
+    ctx.stroke();
+
+}
+
+
+/* ==================================================
+   START
+================================================== */
+
+function startEverything(){
+
+    animateParticles();
+
+    typingAnimation();
+
+    setInterval(
+        createFloatingHeart,
+        350
+    );
+
+}
+
+
+/* ==================================================
+   CONTINUOUS HEART GLOW
+================================================== */
+
+setInterval(()=>{
+
+    if(main.style.display!=="none"){
+
+        drawHeartGlow();
+
+    }
+
+},30);
+
+</script>
+
+</body>
+          </html>
