@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For You ❤️</title>
+
+<style>
+
+/* ===== পুরো পেজ ===== */
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    padding:0;
+    background:#000;
+    color:white;
+    font-family:Georgia,serif;
+    overflow:hidden;
+}
+
+
+/* ===== PASSWORD SCREEN ===== */
+
+#login{
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at center,#3b003b,#000 70%);
+    
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    z-index:9999;
+}
+
+
+#login h1{
+    font-size:32px;
+    color:#ff4da6;
+
+    text-shadow:
+        0 0 10px #ff1493,
+        0 0 25px #ff1493;
+
+    margin-bottom:30px;
+
+    animation:titleMove 2s infinite alternate;
+}
+
+
+@keyframes titleMove{
+
+    from{
+        transform:scale(1);
+    }
+
+    to{
+        transform:scale(1.08);
+    }
+
+}
+
+
+#password{
+    width:260px;
+
+    padding:14px;
+
+    border-radius:30px;
+
+    border:2px solid #ff1493;
+
+    background:#160016;
+
+    color:white;
+
+    text-align:center;
+
+    font-size:18px;
+
+    outline:none;
+}
+
+
+#password::placeholder{
+    color:#aaa;
+}
+
+
+#openButton{
+
+    margin-top:15px;
+
+    padding:13px 35px;
+
+    border:none;
+
+    border-radius:30px;
+
+    background:linear-gradient(
+        45deg,
+        #ff1493,
+        #9b00ff
+    );
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 0 15px #ff1493;
+
+}
+
+
+#error{
+
+    color:#ff4444;
+
+    margin-top:15px;
+
+    font-size:16px;
+
+}
+
+
+/* ===== LOVE PAGE ===== */
+
+#content{
+
+    display:none;
+
+    width:100vw;
+    height:100vh;
+
+    position:relative;
+
+    background:#000;
+
+    overflow:hidden;
+
+}
+
+
+/* ===== VIDEO ===== */
+
+#loveVideo{
+
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+
+    background:#000;
+
+}
+
+
+/* ===== I LOVE YOU TEXT ===== */
+
+.loveTitle{
+
+    position:absolute;
+
+    top:25px;
+
+    left:0;
+    right:0;
+
+    text-align:center;
+
+    z-index:10;
+
+    font-size:34px;
+
+    font-weight:bold;
+
+    color:white;
+
+    text-shadow:
+        0 0 5px #fff,
+        0 0 15px #ff1493,
+        0 0 30px #ff1493;
+
+    animation:
+        loveMove 1.5s infinite alternate;
+
+}
+
+
+@keyframes loveMove{
+
+    0%{
+        transform:scale(1);
+    }
+
+    100%{
+        transform:scale(1.15);
+    }
+
+}
+
+
+/* ===== CLICK HEART ===== */
+
+.clickHeart{
+
+    position:fixed;
+
+    color:#ff1493;
+
+    font-size:35px;
+
+    pointer-events:none;
+
+    z-index:99999;
+
+    animation:heartUp 1s forwards;
+
+}
+
+
+@keyframes heartUp{
+
+    0%{
+        transform:
+        translate(-50%,0)
+        scale(.5);
+
+        opacity:1;
+    }
+
+    100%{
+        transform:
+        translate(-50%,-120px)
+        scale(1.8);
+
+        opacity:0;
+    }
+
+}
+
+
+/* ===== MOBILE ===== */
+
+@media(max-width:600px){
+
+    #login h1{
+        font-size:28px;
+    }
+
+    .loveTitle{
+        font-size:28px;
+        top:20px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     PASSWORD SCREEN
+========================= -->
+
+<div id="login">
+
+    <h1>
+        I Love You ❤️
+    </h1>
+
+
+    <input
+        type="password"
+        id="password"
+        placeholder="Enter Password"
+    >
+
+
+    <button
+        id="openButton"
+        onclick="openLove()"
+    >
+        Open My Love ❤️
+    </button>
+
+
+    <div id="error"></div>
+
+</div>
+
+
+
+<!-- =========================
+     LOVE CONTENT
+========================= -->
+
+<div id="content">
+
+
+    <!-- উপরের লেখা -->
+
+    <div class="loveTitle">
+        I Love You ❤️
+    </div>
+
+
+    <!-- তোমার ভিডিও -->
+
+    <video
+        id="loveVideo"
+        loop
+        playsinline
+        preload="auto"
+    >
+
+        <source
+            src="ssstik.io_@fenidev_1786429371655.mp4"
+            type="video/mp4"
+        >
+
+        Your browser does not support video.
+
+    </video>
+
+
+</div>
+
+
+
+<script>
+
+
+/* =========================
+   PASSWORD CHECK
+========================= */
+
+function openLove(){
+
+    const pass =
+        document.getElementById("password").value;
+
+
+    if(pass === "FARIHA"){
+
+        /* Password screen বন্ধ */
+
+        document.getElementById("login")
+        .style.display = "none";
+
+
+        /* Love page চালু */
+
+        document.getElementById("content")
+        .style.display = "block";
+
+
+        /* ভিডিও চালু */
+
+        const video =
+            document.getElementById("loveVideo");
+
+
+        video.muted = false;
+
+        video.play().catch(function(){
+
+            /* Browser যদি sound আটকায় */
+
+            video.muted = true;
+
+            video.play();
+
+        });
+
+    }
+
+
+    else{
+
+        document.getElementById("error")
+        .innerText =
+        "Wrong Password 😐";
+
+    }
+
+}
+
+
+
+/* =========================
+   ENTER চাপলেও PASSWORD
+========================= */
+
+document
+.getElementById("password")
+.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Enter"){
+
+            openLove();
+
+        }
+
+    }
+);
+
+
+
+/* =========================
+   CLICK HEART
+========================= */
+
+document.addEventListener(
+    "click",
+    function(event){
+
+        /* Password screen-এ heart না */
+
+        if(
+            document.getElementById("content")
+            .style.display !== "block"
+        ){
+
+            return;
+
+        }
+
+
+        const heart =
+            document.createElement("div");
+
+
+        heart.className =
+            "clickHeart";
+
+
+        heart.innerHTML =
+            "❤️";
+
+
+        heart.style.left =
+            event.clientX + "px";
+
+
+        heart.style.top =
+            event.clientY + "px";
+
+
+        document.body.appendChild(
+            heart
+        );
+
+
+        setTimeout(
+            function(){
+
+                heart.remove();
+
+            },
+            1000
+        );
+
+    }
+);
+
+
+</script>
+
+
+</body>
+
+</html>
